@@ -17,9 +17,9 @@ class Sender(BasicSender.BasicSender):
 
     def handle_response(self,response_packet):
         if Checksum.validate_checksum(response_packet):
-            print "recv: %s" % response_packet
+            print("recv: %s" % response_packet)
         else:
-            print "recv: %s <--- CHECKSUM FAILED" % response_packet
+            print("recv: %s <--- CHECKSUM FAILED" % response_packet)
 
     # Main sending loop.
     def start(self):
@@ -37,7 +37,7 @@ class Sender(BasicSender.BasicSender):
 
             packet = self.make_packet(msg_type,seqno,msg)
             self.send(packet)
-            print "sent: %s" % packet
+            print("sent: %s" % packet)
 
             ##### your code goes here ... #####
             # your code should be able to handle packet 
@@ -63,12 +63,12 @@ submission.
 '''
 if __name__ == "__main__":
     def usage():
-        print "BEARDOWN-TP Sender"
-        print "-f FILE | --file=FILE The file to transfer; if empty reads from STDIN"
-        print "-p PORT | --port=PORT The destination port, defaults to 33122"
-        print "-a ADDRESS | --address=ADDRESS The receiver address or hostname, defaults to localhost"
-        print "-d | --debug Print debug messages"
-        print "-h | --help Print this usage message"
+        print("BEARDOWN-TP Sender")
+        print("-f FILE | --file=FILE The file to transfer; if empty reads from STDIN")
+        print("-p PORT | --port=PORT The destination port, defaults to 33122")
+        print("-a ADDRESS | --address=ADDRESS The receiver address or hostname, defaults to localhost")
+        print("-d | --debug Print debug messages")
+        print("-h | --help Print this usage message")
 
     try:
         opts, args = getopt.getopt(sys.argv[1:],

@@ -68,10 +68,10 @@ class BasicTest(object):
         if not os.path.exists(receiver_outfile):
             raise ValueError("No such file %s" % str(receiver_outfile))
         if self.files_are_the_same(self.input_file, receiver_outfile):
-            print "Test passes!"
+            print("Test passes!")
             return True
         else:
-            print "Test fails: original file doesn't match received. :("
+            print("Test fails: original file doesn't match received. :(")
             return False
 
     # Utility methods -- not necessary, just helpful for writing tests

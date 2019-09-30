@@ -263,11 +263,11 @@ if __name__ == "__main__":
 	import sys
 
 	def usage():
-		print "Forwarder/Test harness for BEARDOWN-TP"
-		print "-p PORT | --port PORT Base port value (default: 33123)"
-		print "-s SENDER | --sender SENDER The path to Sender implementation (default: Sender.py)"
-		print "-r RECEIVER | --receiver RECEIVER The path to the Receiver implementation (default: Receiver.py)"
-		print "-h | --help Print this usage message"
+		print("Forwarder/Test harness for BEARDOWN-TP")
+		print("-p PORT | --port PORT Base port value (default: 33123)")
+		print("-s SENDER | --sender SENDER The path to Sender implementation (default: Sender.py)")
+		print("-r RECEIVER | --receiver RECEIVER The path to the Receiver implementation (default: Receiver.py)")
+		print("-h | --help Print this usage message")
 
 	try:
 		opts, args = getopt.getopt(sys.argv[1:],

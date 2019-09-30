@@ -1,6 +1,6 @@
 import random
 
-from BasicTest import *
+from .BasicTest import *
 
 """
 This tests random packet drops. We randomly decide to drop about half of the

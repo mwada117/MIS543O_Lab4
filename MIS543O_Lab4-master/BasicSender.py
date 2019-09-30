@@ -35,7 +35,7 @@ class BasicSender(object):
     def send(self, message, address=None):
         if address is None:
             address = (self.dest,self.dport)
-        self.sock.sendto(message, address)
+        self.sock.sendto(message.encode(), address)
 
         self.packets_sent += 1
 

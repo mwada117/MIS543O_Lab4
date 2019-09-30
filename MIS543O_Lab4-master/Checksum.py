@@ -12,4 +12,4 @@ def validate_checksum(message):
 # Assumes message does NOT contain final checksum field. Message MUST end
 # with a trailing '|' character.
 def generate_checksum(message):
-    return str(binascii.crc32(message) & 0xffffffff)
+    return str(binascii.crc32(message.encode()) & 0xffffffff)
