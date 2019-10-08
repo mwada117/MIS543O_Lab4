@@ -15,11 +15,12 @@ you want to run. The tests automatically register themselves with the
 forwarder, so they will magically be run.
 """
 def tests_to_run(forwarder):
-	from tests import BasicTest, RandomDropTest, RandomCorruptionTest, RandomDuplicationTest
+	from tests import BasicTest, RandomDropTest, RandomCorruptionTest, RandomDuplicationTest, RandomDelayTest
 	# BasicTest.BasicTest(forwarder, "README")
 	# RandomDropTest.RandomDropTest(forwarder, "README")
 	# RandomCorruptionTest.RandomCorruptionTest(forwarder, "README")
-	RandomDuplicationTest.RandomDuplicationTest(forwarder, "README")
+	# RandomDuplicationTest.RandomDuplicationTest(forwarder, "README")
+	RandomDelayTest.RandomDelayTest(forwarder, "README")
 
 
 """

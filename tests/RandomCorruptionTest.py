@@ -14,10 +14,7 @@ class RandomCorruptionTest(BasicTest):
     def handle_packet(self):
         for p in self.forwarder.in_queue:
             if random.choice([True, False]):
-                print 30*"-"
                 p.msg_type = "foo"
-                print p
-                print 30*"-"
             self.forwarder.out_queue.append(p)
 
         # empty out the in_queue

@@ -1,16 +1,16 @@
-import random
+import random, time
 
 from BasicTest import *
 
 """
-This tests random packet duplication. We randomly decide to duplicate about half of the
-packets that go through the forwarder in either direction.
+This tests random packet delay. We randomly decide to delay about half of the
+packets that go through the forwarder in either direction by 1.5 seconds.
 """
-class RandomDuplicationTest(BasicTest):
+class RandomDelayTest(BasicTest):
     def handle_packet(self):
         for p in self.forwarder.in_queue:
             if random.choice([True, False]):
-                self.forwarder.out_queue.append(p)
+                time.sleep(1)
                 self.forwarder.out_queue.append(p)
             else:
                 self.forwarder.out_queue.append(p)

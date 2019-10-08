@@ -26,7 +26,7 @@ class Sender(BasicSender.BasicSender):
             while Checksum.validate_checksum(response) == False:
                 print "Resending packet..."
                 self.send(packet)
-                response = self.receive(0.5)
+                response = self.receive(2.0)
                 self.handle_response(response)
     
     def handle_lost_packet(self,packet,response_packet):
@@ -34,7 +34,8 @@ class Sender(BasicSender.BasicSender):
         while response == None:
             print "The response packet is empty. Resending packet..."
             self.send(packet)
-            response = self.receive(0.5)
+            response = self.receive(2.0)
+        return response
 
     # Main sending loop.
     def start(self):
@@ -61,7 +62,17 @@ class Sender(BasicSender.BasicSender):
             # 3. duplication
             # 4. delay
             # add new functions as necessary
-            response = self.receive(0.5)
+            response = self.receive(2.0)
+            response = self.handle_lost_packet(packet,response)
+            # print response
+            response_seqno = int(response.split('|')[1])
+            while (response_seqno - seqno) < 1:
+                print "The received sequence number is too low. Resending packet..."
+                self.send(packet)
+                response = self.receive(2.0)
+                response = self.handle_lost_packet(packet,response)
+                response_seqno = int(response.split('|')[1])
+                # self.handle_response(response)
             self.handle_lost_packet(packet,response)
             self.handle_response(response)
             self.handle_corrupted_response(packet,response)
